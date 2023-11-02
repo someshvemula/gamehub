@@ -1,4 +1,4 @@
-import { Grid, Progress, Text } from "@chakra-ui/react";
+import { Grid, Progress, SimpleGrid, Text } from "@chakra-ui/react";
 import useGames from "../hooks/useGames";
 import GameCard from "./GameCard";
 import Lottie from "lottie-react";
@@ -14,11 +14,16 @@ const GameGrid = () => {
   }
   return (
     <>
-      <Grid templateColumns="repeat(2, 0.5fr)" gap={5} marginLeft={5}>
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
+        gap={3}
+        marginLeft={5}
+        padding={"10px"}
+      >
         {games.map((game) => (
-          <GameCard game={game}></GameCard>
+          <GameCard key={game.id} game={game}></GameCard>
         ))}
-      </Grid>
+      </SimpleGrid>
     </>
   );
 };
