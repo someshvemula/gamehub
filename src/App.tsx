@@ -3,6 +3,8 @@ import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { Button, Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
+import GameCard from "./components/GameCard";
+import GameGrid from "./components/GameGrid";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,8 +24,8 @@ function App() {
           Aside
         </GridItem>
       </Show>
-      <GridItem bg="green.300" area={"main"}>
-        Main
+      <GridItem area={"main"}>
+        <GameGrid></GameGrid>
       </GridItem>
     </Grid>
   );
