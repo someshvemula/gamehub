@@ -21,7 +21,7 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card borderRadius={10} overflow={"hidden"}>
+    <Card>
       <Image
         src={imageCropper(game.background_image)}
         alt="Green double couch with wooden legs"

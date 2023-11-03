@@ -4,6 +4,7 @@ import GameCard from "./GameCard";
 import Lottie from "lottie-react";
 import LoadingAnimation from "../assets/LoadingAnimation.json";
 import GameCardSkeleton from "./GameCardSkeleton";
+import GameCardContainer from "./GameCardContainer";
 
 const GameGrid = () => {
   const { games, error, isLoading } = useGames();
@@ -23,10 +24,16 @@ const GameGrid = () => {
       >
         {isLoading &&
           skeletonMap.map((Skeleton) => (
-            <GameCardSkeleton key={Skeleton}></GameCardSkeleton>
+            <GameCardContainer>
+              <GameCardSkeleton key={Skeleton}></GameCardSkeleton>
+            </GameCardContainer>
           ))}
         {!isLoading &&
-          games.map((game) => <GameCard key={game.id} game={game}></GameCard>)}
+          games.map((game) => (
+            <GameCardContainer>
+              <GameCard key={game.id} game={game}></GameCard>
+            </GameCardContainer>
+          ))}
       </SimpleGrid>
     </>
   );
