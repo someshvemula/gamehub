@@ -13,7 +13,6 @@ const NavBar = () => {
       <SearchBar></SearchBar>
       <HStack marginRight={"2vw"}>
         <ColorModeSwitch></ColorModeSwitch>
-        <Text>Mode</Text>
       </HStack>
     </HStack>
   );
