@@ -7,9 +7,14 @@ import Lottie from "lottie-react";
 import ErrorAnimation from "../assets/ErrorAnimation.json";
 import { Box } from "@chakra-ui/react";
 import AnimationBox from "./AnimationBox";
+import { Genre } from "../hooks/useGenre";
 
-const GameGrid = () => {
-  const { data, error, isLoading } = useGames();
+interface Props {
+  selectedGenre: Genre | null;
+}
+
+const GameGrid = ({ selectedGenre }: Props) => {
+  const { data, error, isLoading } = useGames(selectedGenre);
   const skeletonMap = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
