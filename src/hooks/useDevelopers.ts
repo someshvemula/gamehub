@@ -1,6 +1,6 @@
 import useData from "./useData";
 
-export interface Genre {
+export interface Developer {
   id: number;
   name: string;
   slug: string;
@@ -8,8 +8,8 @@ export interface Genre {
   image_background: string;
 }
 
-const useGenre = () => {
-  return useData<Genre>("/genres");
+const useDevelopers = () => {
+  return useData<Developer>("/developers");
 };
 
-export default useGenre;
+export default useDevelopers;
