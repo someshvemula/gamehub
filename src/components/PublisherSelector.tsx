@@ -9,7 +9,7 @@ interface Props {
 const PublisherSelector = ({ onSelectPublisher, selectedPublisher }: Props) => {
   const { data, error, isLoading } = usePublishers();
 
-  if (error) return;
+  if (error) return null;
 
   return (
     <Menu>

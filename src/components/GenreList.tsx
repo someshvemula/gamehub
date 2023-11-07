@@ -41,6 +41,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
                     boxSize="32px"
                     borderRadius={8}
                     src={imageCropper(genre.image_background)}
+                    objectFit={"cover"}
                   ></Image>
                 }
                 width={"100%"}
