@@ -15,11 +15,11 @@ interface Props {
 const NavBar = ({ onSearch }: Props) => {
   return (
     <HStack justifyContent={"space-between"}>
-      {/* <Box boxSize={"70px"}>
+      <Box boxSize={"50px"}>
         <Lottie animationData={AnimatedLogo} loop={0}></Lottie>
-      </Box> */}
+      </Box>
 
-      <Image src={logo} boxSize="60px" marginLeft={"0.2vw"} />
+      {/* <Image src={logo} boxSize="60px" marginLeft={"0.2vw"} /> */}
       <SearchBar onSearch={onSearch}></SearchBar>
       <HStack marginRight={"2vw"}>
         <ColorModeSwitch></ColorModeSwitch>
