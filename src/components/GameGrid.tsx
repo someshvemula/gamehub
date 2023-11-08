@@ -94,12 +94,20 @@ const GameGrid = ({
           </>
         )}
       </SimpleGrid>
-      <Button isDisabled={page === 1} onClick={() => setPage(page - 1)}>
-        Previos
-      </Button>
-      <Button marginLeft={2} onClick={() => setPage(page + 1)}>
-        Next
-      </Button>
+      {data.length !== 0 && (
+        <Button isDisabled={page === 1} onClick={() => setPage(page - 1)}>
+          Previos
+        </Button>
+      )}
+      {data.length !== 0 && (
+        <Button
+          marginLeft={2}
+          onClick={() => setPage(page + 1)}
+          isDisabled={data.length === 0}
+        >
+          Next
+        </Button>
+      )}
     </>
   );
 };
