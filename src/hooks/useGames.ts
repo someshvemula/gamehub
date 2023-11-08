@@ -26,7 +26,9 @@ const useGames = (
   selectedPlatform: Platform | null,
   selectedPublisher: Publisher | null,
   selectedDeveloper: Developer | null,
-  searchText: string | null
+  searchText: string | null,
+  page: number,
+  page_size: number
 ) => {
   return useData<Game>(
     "/games",
@@ -37,6 +39,8 @@ const useGames = (
         publishers: selectedPublisher?.id,
         developers: selectedDeveloper?.id,
         search: searchText,
+        page: page,
+        page_size: page_size,
       },
     },
     [
@@ -45,6 +49,8 @@ const useGames = (
       selectedPublisher?.id,
       selectedDeveloper?.id,
       searchText,
+      page,
+      page_size,
     ]
   );
 };

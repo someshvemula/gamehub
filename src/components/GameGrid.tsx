@@ -1,4 +1,4 @@
-import { SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import { Button, SimpleGrid, Stack, Text } from "@chakra-ui/react";
 import useGames, { Platform } from "../hooks/useGames";
 import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
@@ -10,6 +10,7 @@ import { Genre } from "../hooks/useGenre";
 import { Publisher } from "../hooks/usePublishers";
 import { Developer } from "../hooks/useDevelopers";
 import NoResultsAnimation from "../assets/NoResultsAnimation.json";
+import { useState } from "react";
 
 interface Props {
   selectedGenre: Genre | null;
@@ -26,12 +27,16 @@ const GameGrid = ({
   selectedDeveloper,
   searchText,
 }: Props) => {
+  const [page, setPage] = useState(1);
+  const page_size = 10;
   const { data, error, isLoading } = useGames(
     selectedGenre,
     selectedPlatform,
     selectedPublisher,
     selectedDeveloper,
-    searchText
+    searchText,
+    page,
+    page_size
   );
   const skeletonMap = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
@@ -89,6 +94,12 @@ const GameGrid = ({
           </>
         )}
       </SimpleGrid>
+      <Button isDisabled={page === 1} onClick={() => setPage(page - 1)}>
+        Previos
+      </Button>
+      <Button marginLeft={2} onClick={() => setPage(page + 1)}>
+        Next
+      </Button>
     </>
   );
 };
