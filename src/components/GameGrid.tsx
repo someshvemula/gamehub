@@ -28,7 +28,7 @@ const GameGrid = ({
   searchText,
 }: Props) => {
   const [page, setPage] = useState(1);
-  const page_size = 10;
+  const page_size = 20;
   const { data, error, isLoading } = useGames(
     selectedGenre,
     selectedPlatform,
